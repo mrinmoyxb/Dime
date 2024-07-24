@@ -11,24 +11,28 @@ struct SendAndReceiveButton: View {
     var heading: String
     var buttonColor: Color
     var textColor: Color
+    var icon: String
+    var iconColor: Color
     
     var body: some View {
-        VStack{
             Button(action: {}){
                 Text(heading)
-                    .font(.title)
+                    .font(.system(size: 20))
                     .foregroundColor(textColor)
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .fontWeight(.medium)
+                Image(systemName: icon)
+                    .font(.system(size: 20))
+                    .foregroundColor(iconColor)
+                    .fontWeight(.bold)
             }
             .frame(width: (UIScreen.main.bounds.width/2)-20)
-            .frame(height: 90)
+            .frame(height: 80)
             .background(buttonColor)
             .cornerRadius(60)
-        }
     }
 }
 
 
 #Preview {
-    Component1(heading: "Apple", buttonColor: .black, textColor: .white)
+    SendAndReceiveButton(heading: "Apple", buttonColor: .black, textColor: .white, icon: "arrow.up", iconColor: .white)
 }
