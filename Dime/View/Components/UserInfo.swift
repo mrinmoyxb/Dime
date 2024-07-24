@@ -7,12 +7,19 @@
 
 import SwiftUI
 
-struct UserInfo: View {
+struct CustomText: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        HStack{
+            VStack(alignment: .leading){
+                Text("Your Balance")
+                Text("999")
+            }
+            Spacer()
+        }
     }
 }
 
 #Preview {
-    UserInfo()
+    CustomText()
 }
