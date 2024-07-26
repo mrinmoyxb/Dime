@@ -1,5 +1,5 @@
 //
-//  Component1.swift
+//  UserInfo.swift
 //  Dime
 //
 //  Created by Mrinmoy Borah on 24/07/24.
@@ -7,6 +7,21 @@
 
 import SwiftUI
 
+// Custom Text
+struct CustomText: View {
+    var body: some View {
+        
+        HStack{
+            VStack(alignment: .leading){
+                Text("Your Balance")
+                Text("999")
+            }
+            Spacer()
+        }
+    }
+}
+
+// Send and Receive Button of Home Screen
 struct SendAndReceiveButton: View {
     var heading: String
     var buttonColor: Color
@@ -30,9 +45,4 @@ struct SendAndReceiveButton: View {
             .background(buttonColor)
             .cornerRadius(60)
     }
-}
-
-
-#Preview {
-    SendAndReceiveButton(heading: "Apple", buttonColor: .black, textColor: .white, icon: "arrow.up", iconColor: .white)
 }
