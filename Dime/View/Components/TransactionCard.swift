@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct TransactionCard: View {
+    
+    var imageIcon: String
+    var paymentHeading: String
+    var date: String
+    var amount: String
+    
     var body: some View {
         ZStack{
             Rectangle()
@@ -17,37 +23,38 @@ struct TransactionCard: View {
                 .cornerRadius(20)
             
             HStack{
-                Image(systemName: "car.circle.fill")
+                Image(systemName: imageIcon)
                     .font(.system(size: 50))
                     .foregroundColor(.black)
                 
                 VStack(alignment: .leading){
-                    Text("Taxi.......................")
+                    Text(paymentHeading)
                         .font(.system(size: 20))
                         .fontWeight(.semibold)
                         .lineLimit(1)
                     
-                    Text("26/07/2024")
+                    Text(date)
                         .font(.system(size: 15))
                         .lineLimit(1)
                 }
                 .frame(width: 120)
-                .padding(.horizontal, 3)
+                .padding(.horizontal, 2)
                 .foregroundColor(.black)
                 Spacer()
                 
-                Text("+ 200000000")
+                Text(amount)
                     .foregroundColor(.black)
                     .foregroundColor(.white)
                     .fontWeight(.medium)
                 
-            }.padding(.horizontal)
-                .foregroundColor(.black)
+            }
+            .padding(.horizontal)
+            .foregroundColor(.black)
             
         }.padding(.horizontal)
     }
 }
 
 #Preview {
-    TransactionCard()
+    TransactionCard(imageIcon: "car.circle.fill", paymentHeading: "Taxi", date: "26/07/2024", amount: "+ 10000")
 }

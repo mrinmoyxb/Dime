@@ -13,20 +13,35 @@ struct HomeScreen: View {
     let userName: String = "Mrinmoy"
     @State var passwordVisibility = false
     
+    
     var body: some View {
-            
+        let color1 = Color("MyPrimaryColor")
+        let color2 = Color("MySecondaryColor")
+        let color3 = Color("Blue3")
+        let color4 = Color("Blue4")
             // Top Screen
             ScrollView(.vertical){
                 LazyVStack{
+                    
                     ZStack {
                         UnevenRoundedRectangle(cornerRadii: .init(bottomLeading: 50, bottomTrailing: 50))
+                            .fill(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [color1, color3]),
+                                        //gradient: Gradient(colors: [color1,color4]),
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
+                                )
                             .ignoresSafeArea()
-                            .foregroundColor(Color("MyPrimaryColor"))
                             .frame(maxWidth: .infinity)
-                            .frame(height: UIScreen.main.bounds.height/2)
+                            .frame(height: UIScreen.main.bounds.height/2+15)
+                            
                         
-                        VStack(spacing: 60){
-                            // User Info
+                        VStack(spacing: 30){
+                            Spacer()
+                            
+                            // Welcome User
                             HStack{
                                 Circle()
                                     .frame(width: 80, height: 80)
@@ -68,18 +83,21 @@ struct HomeScreen: View {
                                 }
                                 .foregroundColor(.white)
                                 .padding(.horizontal)
-                                Spacer()
                             }
+                            
+                            Spacer()
+                                .frame(height: 5)
                             
                             // Send and Receive Button
                             HStack(alignment: .bottom){
                                 SendAndReceiveButton(heading: "Send", buttonColor: .black, textColor: .white, icon: "arrow.up", iconColor: .white)
                                 SendAndReceiveButton(heading: "Receive", buttonColor: .white, textColor: .black, icon: "arrow.down", iconColor: .black)
                             }
+                            Spacer()
+                                .frame(height: 0.5)
                         }
                         
                     }
-                    Spacer()
                     
                     // Second Part
                     // Quick Send Users - heading
@@ -90,14 +108,16 @@ struct HomeScreen: View {
                         Spacer()
                     }
                     .padding(.horizontal)
+                    .padding(.vertical)
                     
                     // Users
                     ScrollView(.horizontal){
                         LazyHStack{
                             ForEach(0...4, id: \.self){i in
                                 QuickSendUsers()
-                            }.padding(.horizontal, 2)
-                        }
+                                    .padding(.horizontal, 3)
+                            }
+                        }.padding(.horizontal)
                     }
                     
                     // Last Transactions - heading
@@ -111,7 +131,7 @@ struct HomeScreen: View {
                     .padding(.vertical)
                     
                     ForEach(0...2, id: \.self){ transaction in
-                        TransactionCard()
+                        TransactionCard(imageIcon: "car.circle.fill", paymentHeading: "Taxi", date: "20/10/2024", amount: "+ 1000000000")
                     }
                     
                     
