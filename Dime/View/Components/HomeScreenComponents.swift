@@ -46,3 +46,17 @@ struct SendAndReceiveButton: View {
             .cornerRadius(60)
     }
 }
+
+
+// Common Users
+struct QuickSendUsers: View{
+    var body: some View{
+        Button(action: {}){
+            Circle()
+                .frame(width: 70, height: 70)
+                .foregroundColor(.white)
+        }
+    }
+}
+
+
