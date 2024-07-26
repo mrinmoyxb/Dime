@@ -60,3 +60,20 @@ struct QuickSendUsers: View{
 }
 
 
+// Digit card
+struct DigitCard: View{
+    var number: String
+    var body: some View{
+        VStack{
+        Button(action: {}){
+            Text(number)
+                .font(.system(size: 50))
+                .foregroundColor(.white)
+                .fontWeight(.semibold)
+            
+        }
+        }.frame(width: 50, height: 50)
+        .background(Color.black)
+    }
+}
+

@@ -16,9 +16,7 @@ struct HomeScreen: View {
     
     var body: some View {
         let color1 = Color("MyPrimaryColor")
-        let color2 = Color("MySecondaryColor")
         let color3 = Color("Blue3")
-        let color4 = Color("Blue4")
             // Top Screen
             ScrollView(.vertical){
                 LazyVStack{
@@ -28,7 +26,6 @@ struct HomeScreen: View {
                             .fill(
                                     LinearGradient(
                                         gradient: Gradient(colors: [color1, color3]),
-                                        //gradient: Gradient(colors: [color1,color4]),
                                         startPoint: .topLeading,
                                         endPoint: .bottomTrailing
                                     )
