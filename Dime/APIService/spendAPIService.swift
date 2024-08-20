@@ -7,12 +7,12 @@
 
 import Foundation
 
-class DimeSpendAPIService{
+class SpendAPIService{
     
     // GET
     func getSpendOfUser() async throws -> [Spend]{
-        let apiEndpoint: String = "https://localhost:3000/api/spend"
-        
+        let apiEndpoint: String = "http://localhost:3000/api/spend"
+
         guard let url = URL(string: apiEndpoint) else{
             throw URLError(.badURL)
         }
@@ -23,17 +23,15 @@ class DimeSpendAPIService{
             throw URLError(.badServerResponse)
         }
         
-        let urlData = try JSONDecoder().decode(getSpendModel.self, from: data)
-        let fetchedSpend: [Spend] = urlData.msg.flatMap{ msg->[Spend] in
-            return [msg]
+        let urlData = try JSONDecoder().decode(GetSpendModel.self, from: data)
+        let fetchedSpend: [Spend] = urlData.response.flatMap{ response ->[Spend] in
+            return [response]
         }
-        print(fetchedSpend)
         return fetchedSpend
     }
     
     
-    // POST
-    func postSpendOfUser() async throws{
-            
-    }
+//    // POST
+//    func postSpendOfUser() async throws{}
 }
+

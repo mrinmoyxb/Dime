@@ -8,26 +8,28 @@
 import Foundation
 
 // GET
-struct getSpendModel: Codable{
-    let msg: [Spend]
+struct GetSpendModel: Codable{
+    let response: [Spend]
 }
 
 struct Spend: Codable, Identifiable{
     let id: Int
-    let spendType: String
-    let amount: String
-    let date: Date
+    let transactionType: String
+    let amount: Double
+    let category: String
+    let date: String
     
     enum CodingKeys: String, CodingKey{
-        case spendType
+        case transactionType
         case amount
+        case category
         case date
-        case id = "spendId"
+        case id = "transactionId"
     }
 }
 
 // POST
 struct postSpendModel: Codable{
     let amount: String
-    let spendType: String
+    let category: String
 }
