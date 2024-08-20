@@ -10,7 +10,7 @@ import Foundation
 class SpendAPIService{
     
     // GET
-    func getSpendOfUser() async throws -> [Spend]{
+    func getSpendOfUser() async throws -> [Payment]{
         let apiEndpoint: String = "http://localhost:3000/api/spend"
 
         guard let url = URL(string: apiEndpoint) else{
@@ -23,8 +23,8 @@ class SpendAPIService{
             throw URLError(.badServerResponse)
         }
         
-        let urlData = try JSONDecoder().decode(GetSpendModel.self, from: data)
-        let fetchedSpend: [Spend] = urlData.response.flatMap{ response ->[Spend] in
+        let urlData = try JSONDecoder().decode(TransactionModel.self, from: data)
+        let fetchedSpend: [Payment] = urlData.response.flatMap{ response ->[Payment] in
             return [response]
         }
         return fetchedSpend

@@ -9,10 +9,10 @@ import Foundation
 
 // GET
 struct TransactionModel: Codable{
-    let response: [Spend]
+    let response: [Payment]
 }
 
-struct Spend: Codable, Identifiable{
+struct Payment: Codable, Identifiable{
     let id: Int
     let transactionType: String
     let amount: Double
