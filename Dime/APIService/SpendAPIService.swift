@@ -31,7 +31,25 @@ class SpendAPIService{
     }
     
     
-//    // POST
-//    func postSpendOfUser() async throws{}
+    // POST
+    func postSpendOfUser() async throws{
+        let apiEndpoint = "http://localhost:3000/api/spend"
+        guard let url = URL(string: apiEndpoint) else{
+            throw URLError(.badURL)
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        request.httpBody = try JSONEncoder().encode(PostTransactionModel(amount: 100, category: "Test"))
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
+            throw URLError(.badServerResponse)
+        }
+        
+        let responseData = try JSONDecoder().decode(PostResponseTransactionModel.self, from: data)
+        print(responseData.response)
+    }
 }
-

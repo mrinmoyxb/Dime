@@ -29,7 +29,11 @@ struct Payment: Codable, Identifiable{
 }
 
 // POST
-struct postSpendModel: Codable{
-    let amount: String
+struct PostTransactionModel: Codable{
+    let amount: Double
     let category: String
+}
+
+struct PostResponseTransactionModel: Codable{
+    let response: String
 }

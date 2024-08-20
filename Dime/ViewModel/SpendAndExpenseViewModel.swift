@@ -11,7 +11,7 @@ class SpendAndExpenseViewModel: ObservableObject{
     
     let spendApiService = SpendAPIService()
     
-    @Published var getSpend: [Spend] = [Spend]()
+    @Published var getSpendings: [Payment] = [Payment]()
     //@Published var postSpend: postSpendModel = postSpendModel(amount: "", spendType: "")
     @Published var errorMessage: String = ""
     
@@ -19,8 +19,9 @@ class SpendAndExpenseViewModel: ObservableObject{
         Task{
             do{
                 let fetchedSpendings = try await spendApiService.getSpendOfUser()
+                try await spendApiService.postSpendOfUser()
                 DispatchQueue.main.async{
-                    self.getSpend = fetchedSpendings
+                    self.getSpendings = fetchedSpendings
                 }
             }catch{
                 DispatchQueue.main.async{
