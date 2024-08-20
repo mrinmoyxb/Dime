@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F545199D2C74494400D00EF4 /* DimeSpendAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F545199C2C74494400D00EF4 /* DimeSpendAPIService.swift */; };
+		F545199F2C74499700D00EF4 /* DimeEarnAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F545199E2C74499700D00EF4 /* DimeEarnAPIService.swift */; };
+		F54519A32C744D7900D00EF4 /* SpendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54519A22C744D7900D00EF4 /* SpendModel.swift */; };
 		F55F36972C53E6EB005C49E8 /* SendScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F36962C53E6EB005C49E8 /* SendScreen.swift */; };
 		F57E67DC2C50B24F0023D85F /* DimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57E67DB2C50B24F0023D85F /* DimeApp.swift */; };
 		F57E67DE2C50B24F0023D85F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57E67DD2C50B24F0023D85F /* ContentView.swift */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F545199C2C74494400D00EF4 /* DimeSpendAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeSpendAPIService.swift; sourceTree = "<group>"; };
+		F545199E2C74499700D00EF4 /* DimeEarnAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeEarnAPIService.swift; sourceTree = "<group>"; };
+		F54519A22C744D7900D00EF4 /* SpendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendModel.swift; sourceTree = "<group>"; };
 		F55F36962C53E6EB005C49E8 /* SendScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendScreen.swift; sourceTree = "<group>"; };
 		F57E67D82C50B24F0023D85F /* Dime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F57E67DB2C50B24F0023D85F /* DimeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimeApp.swift; sourceTree = "<group>"; };
@@ -40,6 +46,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F545199B2C74492600D00EF4 /* APIService */ = {
+			isa = PBXGroup;
+			children = (
+				F545199C2C74494400D00EF4 /* DimeSpendAPIService.swift */,
+				F545199E2C74499700D00EF4 /* DimeEarnAPIService.swift */,
+			);
+			path = APIService;
+			sourceTree = "<group>";
+		};
 		F57E67CF2C50B24F0023D85F = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +74,7 @@
 		F57E67DA2C50B24F0023D85F /* Dime */ = {
 			isa = PBXGroup;
 			children = (
+				F545199B2C74492600D00EF4 /* APIService */,
 				F57E67EB2C50B2750023D85F /* ViewModel */,
 				F57E67EA2C50B26F0023D85F /* View */,
 				F57E67E92C50B2680023D85F /* Model */,
@@ -81,6 +97,7 @@
 		F57E67E92C50B2680023D85F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F54519A22C744D7900D00EF4 /* SpendModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -192,8 +209,11 @@
 				F5A7D4B42C53C8E8001229F9 /* TransactionCard.swift in Sources */,
 				F55F36972C53E6EB005C49E8 /* SendScreen.swift in Sources */,
 				F57E67DE2C50B24F0023D85F /* ContentView.swift in Sources */,
+				F545199F2C74499700D00EF4 /* DimeEarnAPIService.swift in Sources */,
 				F57E67DC2C50B24F0023D85F /* DimeApp.swift in Sources */,
 				F57E67F22C50B6610023D85F /* HomeScreen.swift in Sources */,
+				F54519A32C744D7900D00EF4 /* SpendModel.swift in Sources */,
+				F545199D2C74494400D00EF4 /* DimeSpendAPIService.swift in Sources */,
 				F5E667942C5136BF00EA81A6 /* HomeScreenComponents.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

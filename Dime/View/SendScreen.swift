@@ -13,31 +13,35 @@ struct SendScreen: View {
     var body: some View {
         VStack{
             // Input Field
-            VStack{
-                QuickSendUsers()
+            VStack(alignment: .center){
                 TextField(text: $inputAmount) {
-                    Text("Hello")
+                    Text("Enter amount")
                         .foregroundColor(.white)
                 }
+                .foregroundColor(.white)
             }
+            .frame(maxWidth: .infinity, alignment: .center)
+            .padding(.vertical)
+            .padding(.horizontal)
+            
             // Digit
-            VStack(spacing: 0){
-                HStack{
+            VStack(spacing: 50){
+                HStack(spacing: 80){
                     DigitCard(number: "1")
                     DigitCard(number: "2")
                     DigitCard(number: "3")
                 }
-                HStack{
+                HStack(spacing: 80){
                     DigitCard(number: "4")
                     DigitCard(number: "5")
                     DigitCard(number: "6")
                 }
-                HStack{
+                HStack(spacing: 80){
                     DigitCard(number: "7")
                     DigitCard(number: "8")
                     DigitCard(number: "9")
                 }
-                HStack{
+                HStack(spacing: 80){
                     DigitCard(number: ".")
                     DigitCard(number: "0")
                     DigitCard(number: "x")
@@ -45,6 +49,7 @@ struct SendScreen: View {
             }
             
             // Send Button
+            
             
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(.black))
