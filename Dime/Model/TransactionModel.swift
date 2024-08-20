@@ -8,7 +8,7 @@
 import Foundation
 
 // GET
-struct GetSpendModel: Codable{
+struct TransactionModel: Codable{
     let response: [Spend]
 }
 
