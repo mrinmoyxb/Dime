@@ -41,10 +41,9 @@ class SpendAPIService{
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
         request.httpBody = try JSONEncoder().encode(PostTransactionModel(amount: 100, category: "Test"))
-        let (data, response) = try await URLSession.shared.data(for: request)
         
+        let (data, response) = try await URLSession.shared.data(for: request)
         if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode != 200 {
             throw URLError(.badServerResponse)
         }
