@@ -9,25 +9,42 @@ import Foundation
 
 class SpendAndExpenseViewModel: ObservableObject{
     
+    let earnApiService = EarnAPIService()
     let spendApiService = SpendAPIService()
     
     @Published var getSpendings: [Payment] = [Payment]()
-    //@Published var postSpend: postSpendModel = postSpendModel(amount: "", spendType: "")
+    @Published var getEarnings: [Payment] = [Payment]()
+    @Published var postSpend: PostResponseTransactionModel = PostResponseTransactionModel(response: "")
+    
     @Published var errorMessage: String = ""
     
     init(){
         Task{
             do{
                 let fetchedSpendings = try await spendApiService.getSpendOfUser()
-                try await spendApiService.postSpendOfUser()
+                let fetchedEarnings = try await earnApiService.getEarnOfUser()
+                
                 DispatchQueue.main.async{
                     self.getSpendings = fetchedSpendings
+                    
                 }
             }catch{
                 DispatchQueue.main.async{
                     self.errorMessage = error.localizedDescription
                 }
             }
+        }
+    }
+    
+    func postEaringRequest(amount: Double, category: String){
+        Task{
+            try await earnApiService.postEarnOfUser(amount: amount, category: category)
+        }
+    }
+    
+    func postSpendingRequest(amount: Double, category: String){
+        Task{
+            try await spendApiService.postSpendOfUser(amount:amount, category: category)
         }
     }
 }
