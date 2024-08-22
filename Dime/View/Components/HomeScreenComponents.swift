@@ -30,15 +30,17 @@ struct SendAndReceiveButton: View {
     var iconColor: Color
     
     var body: some View {
-            Button(action: {}){
-                Text(heading)
-                    .font(.system(size: 20))
-                    .foregroundColor(textColor)
-                    .fontWeight(.medium)
-                Image(systemName: icon)
-                    .font(.system(size: 20))
-                    .foregroundColor(iconColor)
-                    .fontWeight(.bold)
+            ZStack{
+                HStack{
+                    Text(heading)
+                        .font(.system(size: 20))
+                        .foregroundColor(textColor)
+                        .fontWeight(.medium)
+                    Image(systemName: icon)
+                        .font(.system(size: 20))
+                        .foregroundColor(iconColor)
+                        .fontWeight(.bold)
+                }
             }
             .frame(width: (UIScreen.main.bounds.width/2)-20)
             .frame(height: 80)

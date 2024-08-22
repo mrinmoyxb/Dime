@@ -17,23 +17,24 @@ struct HomeScreen: View {
     var body: some View {
         let color1 = Color("MyPrimaryColor")
         let color3 = Color("Blue3")
-            // Top Screen
+        // Top Screen
+        NavigationStack{
             ScrollView(.vertical){
                 LazyVStack{
                     
                     ZStack {
                         UnevenRoundedRectangle(cornerRadii: .init(bottomLeading: 50, bottomTrailing: 50))
                             .fill(
-                                    LinearGradient(
-                                        gradient: Gradient(colors: [color1, color3]),
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    )
+                                LinearGradient(
+                                    gradient: Gradient(colors: [color1, color3]),
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
                                 )
+                            )
                             .ignoresSafeArea()
                             .frame(maxWidth: .infinity)
                             .frame(height: UIScreen.main.bounds.height/2+15)
-                            
+                        
                         
                         VStack(spacing: 30){
                             Spacer()
@@ -87,7 +88,12 @@ struct HomeScreen: View {
                             
                             // Send and Receive Button
                             HStack(alignment: .bottom){
-                                SendAndReceiveButton(heading: "Send", buttonColor: .black, textColor: .white, icon: "arrow.up", iconColor: .white)
+                                NavigationLink(destination: SendScreen()
+                                    .toolbarRole(.editor), label: {
+                                    SendAndReceiveButton(heading: "Send", buttonColor: .black, textColor: .white, icon: "arrow.up", iconColor: .white)
+                                })
+                                .navigationBarBackButtonHidden(/*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/)
+                                
                                 SendAndReceiveButton(heading: "Receive", buttonColor: .white, textColor: .black, icon: "arrow.down", iconColor: .black)
                             }
                             Spacer()
@@ -137,6 +143,7 @@ struct HomeScreen: View {
             .ignoresSafeArea()
             .background(Color.black)
         }
+    }
 }
 
 #Preview {

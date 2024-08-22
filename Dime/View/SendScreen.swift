@@ -17,14 +17,15 @@ struct SendScreen: View {
             
             // Input Field
             VStack{
-                TextField(text: $viewModel.amountInput) {
-                    Text("Enter amount")
-                        .foregroundColor(.white)
-                        .frame(width: .infinity, alignment: .center)
-                }
+                    TextField(text: $viewModel.amountInput) {
+                        Text("0")
+                            .foregroundColor(.white)
+                    }
+                    .font(.system(size: 50))
+                    .frame(width: .infinity, alignment: .center)
             }
             .foregroundColor(.white)
-            .padding([.leading, .trailing], 120)
+            .padding([.leading])
             .padding(.vertical)
             .padding(.horizontal)
             
@@ -34,6 +35,7 @@ struct SendScreen: View {
                     ForEach(SpendCategory.allCases){spend in
                         SelectButton(title: spend.rawValue)
                     }
+                    SelectButton(title: "+")
                 }
                 .frame(height: 60)
                 .frame(maxWidth: .infinity)
@@ -62,7 +64,12 @@ struct SendScreen: View {
                 HStack(spacing: 80){
                     DigitCard(number: ".", insertNumber: {viewModel.inputNumber(".")})
                     DigitCard(number: "0", insertNumber: {viewModel.inputNumber("0")})
-                    DigitCard(number: "x", insertNumber: {viewModel.inputNumber("X")})
+                    Button(action: {viewModel.inputNumber("X")}, label: {
+                        Image(systemName: "delete.left.fill")
+                            .font(.system(size: 30))
+                            .foregroundColor(.white)
+                            .fontWeight(.semibold)
+                    })
                 }
             }
             
@@ -70,22 +77,24 @@ struct SendScreen: View {
             Spacer()
                 .frame(height: 50)
             
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                ZStack{
-                    Circle()
-                        .frame(width: 80, height: 80)
-                        .foregroundColor(Color("MyPrimaryColor"))
-                    
-                    Image(systemName: "arrow.forward")
-                        .font(.system(size: 30))
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                }
-
-            })
+            HStack{
+                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    ZStack{
+                        Circle()
+                            .frame(width: 80, height: 80)
+                            .foregroundColor(Color("MyPrimaryColor"))
+                        
+                        Image(systemName: "arrow.forward")
+                            .font(.system(size: 30))
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                    }
+                })
+            }.frame(maxWidth: .infinity, alignment: .trailing)
+                .padding(.trailing, 40)
+            
            Spacer()
-            
-            
+                .frame(height: 20)
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color(.black))
     }
