@@ -7,11 +7,11 @@
 
 import Foundation
 
-class SendPayment: ObservableObject{
+class SendPaymentViewModel: ObservableObject{
     @Published var amountInput: String = ""
     
     // input number 
-    func inputNumber(_ button: String){
+    func inputNumber(_ button: String)->Void{
         if(button == "X"){
             if(!amountInput.isEmpty){
                 amountInput.removeLast()

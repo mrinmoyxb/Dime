@@ -63,17 +63,49 @@ struct QuickSendUsers: View{
 // Digit card
 struct DigitCard: View{
     var number: String
+    var insertNumber: () -> Void
+    
     var body: some View{
         VStack{
-        Button(action: {}){
+            Button(action: {insertNumber()}){
             Text(number)
                 .font(.system(size: 50))
                 .foregroundColor(.white)
                 .fontWeight(.semibold)
-            
         }
         }.frame(width: 50, height: 50)
         .background(Color.black)
     }
 }
+
+
+// Buttons for spend and earn
+struct SelectButton: View{
+    
+    var title: String
+    @State var buttonColor: Bool = false
+    let color3 = Color("MyPrimaryColor")
+    
+    var body: some View{
+        ZStack{
+            VStack{
+                Text(title)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 10)
+                    .font(.headline)
+                    .background( buttonColor ? color3 : Color.white)
+                    .foregroundColor(buttonColor ? Color.white : Color.black)
+                    .cornerRadius(30)
+                
+            }.fixedSize()
+        }
+        .background(Color.black)
+        .onTapGesture {(
+            buttonColor.toggle()
+        )}
+        
+    }
+}
+
+
 

@@ -14,6 +14,7 @@ class SpendAndExpenseViewModel: ObservableObject{
     
     @Published var getSpendings: [Payment] = [Payment]()
     @Published var getEarnings: [Payment] = [Payment]()
+    
     @Published var postSpend: PostResponseTransactionModel = PostResponseTransactionModel(response: "")
     
     @Published var errorMessage: String = ""
@@ -26,7 +27,7 @@ class SpendAndExpenseViewModel: ObservableObject{
                 
                 DispatchQueue.main.async{
                     self.getSpendings = fetchedSpendings
-                    
+                    self.getEarnings = fetchedEarnings
                 }
             }catch{
                 DispatchQueue.main.async{
