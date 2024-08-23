@@ -12,7 +12,7 @@
 		F545199D2C74494400D00EF4 /* SpendAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F545199C2C74494400D00EF4 /* SpendAPIService.swift */; };
 		F545199F2C74499700D00EF4 /* EarnAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F545199E2C74499700D00EF4 /* EarnAPIService.swift */; };
 		F54519A32C744D7900D00EF4 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54519A22C744D7900D00EF4 /* TransactionModel.swift */; };
-		F54519A52C74582A00D00EF4 /* SpendAndExpenseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54519A42C74582A00D00EF4 /* SpendAndExpenseViewModel.swift */; };
+		F54519A52C74582A00D00EF4 /* SpendAndEarnViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F54519A42C74582A00D00EF4 /* SpendAndEarnViewModel.swift */; };
 		F55F36972C53E6EB005C49E8 /* SendScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55F36962C53E6EB005C49E8 /* SendScreen.swift */; };
 		F576327E2C77610C00877C33 /* SendPaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F576327D2C77610C00877C33 /* SendPaymentViewModel.swift */; };
 		F57E67DC2C50B24F0023D85F /* DimeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F57E67DB2C50B24F0023D85F /* DimeApp.swift */; };
@@ -30,7 +30,7 @@
 		F545199C2C74494400D00EF4 /* SpendAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendAPIService.swift; sourceTree = "<group>"; };
 		F545199E2C74499700D00EF4 /* EarnAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarnAPIService.swift; sourceTree = "<group>"; };
 		F54519A22C744D7900D00EF4 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
-		F54519A42C74582A00D00EF4 /* SpendAndExpenseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendAndExpenseViewModel.swift; sourceTree = "<group>"; };
+		F54519A42C74582A00D00EF4 /* SpendAndEarnViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendAndEarnViewModel.swift; sourceTree = "<group>"; };
 		F55F36962C53E6EB005C49E8 /* SendScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendScreen.swift; sourceTree = "<group>"; };
 		F576327D2C77610C00877C33 /* SendPaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendPaymentViewModel.swift; sourceTree = "<group>"; };
 		F57E67D82C50B24F0023D85F /* Dime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dime.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,7 +125,7 @@
 		F57E67EB2C50B2750023D85F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				F54519A42C74582A00D00EF4 /* SpendAndExpenseViewModel.swift */,
+				F54519A42C74582A00D00EF4 /* SpendAndEarnViewModel.swift */,
 				F576327D2C77610C00877C33 /* SendPaymentViewModel.swift */,
 			);
 			path = ViewModel;
@@ -227,7 +227,7 @@
 				F54519A32C744D7900D00EF4 /* TransactionModel.swift in Sources */,
 				F545199D2C74494400D00EF4 /* SpendAPIService.swift in Sources */,
 				F5E667942C5136BF00EA81A6 /* HomeScreenComponents.swift in Sources */,
-				F54519A52C74582A00D00EF4 /* SpendAndExpenseViewModel.swift in Sources */,
+				F54519A52C74582A00D00EF4 /* SpendAndEarnViewModel.swift in Sources */,
 				F538FAF92C77040700646F9B /* EarnCategory.swift in Sources */,
 				F538FAFB2C7720E400646F9B /* Temp.swift in Sources */,
 				F576327E2C77610C00877C33 /* SendPaymentViewModel.swift in Sources */,

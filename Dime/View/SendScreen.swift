@@ -9,7 +9,9 @@ import SwiftUI
 
 struct SendScreen: View {
     
-    @StateObject var viewModel = SendPaymentViewModel()
+    @StateObject var sendPaymentViewModel = SendPaymentViewModel()
+    @StateObject var spendAndEarnViewModel = SpendAndEarnViewModel()
+    
     var body: some View {
         VStack{
             
@@ -17,8 +19,8 @@ struct SendScreen: View {
             
             // Input Field
             VStack{
-                    TextField(text: $viewModel.amountInput) {
-                        Text("0")
+                    TextField(text: $sendPaymentViewModel.amountInput) {
+                        Text("0.0")
                             .foregroundColor(.white)
                     }
                     .font(.system(size: 50))
@@ -33,9 +35,9 @@ struct SendScreen: View {
             ScrollView(.horizontal){
                 LazyHStack{
                     ForEach(SpendCategory.allCases){spend in
-                        SelectButton(title: spend.rawValue)
+                        SelectButton(title: spend.rawValue, selectCategory: {sendPaymentViewModel.inputCategory(spend.rawValue)})
                     }
-                    SelectButton(title: "+")
+                    SelectButton(title: "+", selectCategory: {sendPaymentViewModel.inputCategory("")})
                 }
                 .frame(height: 60)
                 .frame(maxWidth: .infinity)
@@ -47,24 +49,24 @@ struct SendScreen: View {
             // Digit
             VStack(spacing: 50){
                 HStack(spacing: 80){
-                    DigitCard(number: "1", insertNumber: {viewModel.inputNumber("1")})
-                    DigitCard(number: "2", insertNumber: {viewModel.inputNumber("2")})
-                    DigitCard(number: "3", insertNumber: {viewModel.inputNumber("3")})
+                    DigitCard(number: "1", insertNumber: {sendPaymentViewModel.inputNumber("1")})
+                    DigitCard(number: "2", insertNumber: {sendPaymentViewModel.inputNumber("2")})
+                    DigitCard(number: "3", insertNumber: {sendPaymentViewModel.inputNumber("3")})
                 }
                 HStack(spacing: 80){
-                    DigitCard(number: "4", insertNumber: {viewModel.inputNumber("4")})
-                    DigitCard(number: "5", insertNumber: {viewModel.inputNumber("5")})
-                    DigitCard(number: "6", insertNumber: {viewModel.inputNumber("6")})
+                    DigitCard(number: "4", insertNumber: {sendPaymentViewModel.inputNumber("4")})
+                    DigitCard(number: "5", insertNumber: {sendPaymentViewModel.inputNumber("5")})
+                    DigitCard(number: "6", insertNumber: {sendPaymentViewModel.inputNumber("6")})
                 }
                 HStack(spacing: 80){
-                    DigitCard(number: "7", insertNumber: {viewModel.inputNumber("7")})
-                    DigitCard(number: "8", insertNumber: {viewModel.inputNumber("8")})
-                    DigitCard(number: "9", insertNumber: {viewModel.inputNumber("9")})
+                    DigitCard(number: "7", insertNumber: {sendPaymentViewModel.inputNumber("7")})
+                    DigitCard(number: "8", insertNumber: {sendPaymentViewModel.inputNumber("8")})
+                    DigitCard(number: "9", insertNumber: {sendPaymentViewModel.inputNumber("9")})
                 }
                 HStack(spacing: 80){
-                    DigitCard(number: ".", insertNumber: {viewModel.inputNumber(".")})
-                    DigitCard(number: "0", insertNumber: {viewModel.inputNumber("0")})
-                    Button(action: {viewModel.inputNumber("X")}, label: {
+                    DigitCard(number: ".", insertNumber: {sendPaymentViewModel.inputNumber(".")})
+                    DigitCard(number: "0", insertNumber: {sendPaymentViewModel.inputNumber("0")})
+                    Button(action: {sendPaymentViewModel.inputNumber("X")}, label: {
                         Image(systemName: "delete.left.fill")
                             .font(.system(size: 30))
                             .foregroundColor(.white)
@@ -78,7 +80,7 @@ struct SendScreen: View {
                 .frame(height: 50)
             
             HStack{
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                Button(action: {spendAndEarnViewModel.postSpendingRequest(amount: Double(sendPaymentViewModel.amountInput) ?? 0.0, category: sendPaymentViewModel.categoryOfSpending)}, label: {
                     ZStack{
                         Circle()
                             .frame(width: 80, height: 80)
@@ -92,6 +94,7 @@ struct SendScreen: View {
                 })
             }.frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.trailing, 40)
+            
             
            Spacer()
                 .frame(height: 20)

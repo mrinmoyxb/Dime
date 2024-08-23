@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SpendAndExpenseViewModel: ObservableObject{
+class SpendAndEarnViewModel: ObservableObject{
     
     let earnApiService = EarnAPIService()
     let spendApiService = SpendAPIService()

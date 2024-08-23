@@ -85,6 +85,8 @@ struct DigitCard: View{
 struct SelectButton: View{
     
     var title: String
+    var selectCategory: () -> Void
+    
     @State var buttonColor: Bool = false
     let color3 = Color("MyPrimaryColor")
     
@@ -102,9 +104,10 @@ struct SelectButton: View{
             }.fixedSize()
         }
         .background(Color.black)
-        .onTapGesture {(
+        .onTapGesture {
             buttonColor.toggle()
-        )}
+            selectCategory()
+        }
         
     }
 }

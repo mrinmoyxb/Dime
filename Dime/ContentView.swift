@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var spendViewModel = SpendAndExpenseViewModel()
+  
     var body: some View {
         VStack {
             Text("Testing")

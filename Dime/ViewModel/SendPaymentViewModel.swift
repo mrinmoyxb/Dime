@@ -8,7 +8,9 @@
 import Foundation
 
 class SendPaymentViewModel: ObservableObject{
+    
     @Published var amountInput: String = ""
+    @Published var categoryOfSpending: String = ""
     
     // input number 
     func inputNumber(_ button: String)->Void{
@@ -19,6 +21,10 @@ class SendPaymentViewModel: ObservableObject{
         }else{
             amountInput += button
         }
+    }
+    
+    func inputCategory(_ category: String)-> Void{
+        categoryOfSpending = category
     }
     
 }
