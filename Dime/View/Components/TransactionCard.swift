@@ -9,11 +9,8 @@ import SwiftUI
 
 struct TransactionCard: View {
     
-    var imageIcon: String
-    var paymentHeading: String
-    var date: String
-    var amount: Double
-    var transactionType: String
+      var imageIcon: String
+      var payment: Payment
     
     var body: some View {
         ZStack{
@@ -32,11 +29,11 @@ struct TransactionCard: View {
                 
                 // Payment type and date
                 VStack(alignment: .leading){
-                    Text(paymentHeading)
+                    Text(payment.category)
                         .font(.system(size: 20))
                         .fontWeight(.semibold)
                     
-                    Text(date)
+                    Text(payment.date)
                         .font(.system(size: 15))
                         .opacity(0.7)
                 }
@@ -47,8 +44,8 @@ struct TransactionCard: View {
                 
                 // Amount
                 HStack{
-                    Text(transactionType == "Spend" ? amount : amount, format: .currency(code: "INR"))
-                        .foregroundColor(transactionType == "Spend" ? Color.red : Color.green)
+                    Text(payment.signedAmount, format: .currency(code: "INR"))
+                        .foregroundColor(payment.transactionType == "Spend" ? Color.red : Color.green)
                         .foregroundColor(.white)
                         .fontWeight(.medium)
                 }
@@ -62,5 +59,5 @@ struct TransactionCard: View {
 }
 
 #Preview {
-    TransactionCard(imageIcon: "car.circle.fill", paymentHeading: "Taxi", date: "26/07/2024", amount: 10000.00, transactionType: "Spend")
+    TransactionCard(imageIcon: "car.circle.fill", payment: Payment(id: 1, transactionType: "Spend", amount: 1000, category: "Taxi", date: "23/20/2003"))
 }

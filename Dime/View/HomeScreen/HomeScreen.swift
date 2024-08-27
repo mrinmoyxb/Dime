@@ -134,7 +134,7 @@ struct HomeScreen: View {
                     .padding(.vertical)
                     
                     ForEach(0...6, id: \.self){ transaction in
-                        TransactionCard(imageIcon: "car.circle.fill", paymentHeading: "Taxi", date: "20/10/2024", amount: 2420, transactionType: "Spend")
+                        TransactionCard(imageIcon: "car.circle.fill", payment: Payment(id: 1, transactionType: "Spend", amount: 1000, category: "Taxi", date: "23/20/2003"))
                     }
                     
                     
