@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F5325AC52C7DFDEA00BA808C /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5325AC42C7DFDEA00BA808C /* Extension.swift */; };
 		F538FAF92C77040700646F9B /* EarnCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F538FAF82C77040700646F9B /* EarnCategory.swift */; };
 		F538FAFB2C7720E400646F9B /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F538FAFA2C7720E400646F9B /* Temp.swift */; };
 		F545199D2C74494400D00EF4 /* SpendAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F545199C2C74494400D00EF4 /* SpendAPIService.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F5325AC42C7DFDEA00BA808C /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		F538FAF82C77040700646F9B /* EarnCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarnCategory.swift; sourceTree = "<group>"; };
 		F538FAFA2C7720E400646F9B /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
 		F545199C2C74494400D00EF4 /* SpendAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendAPIService.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 				F57E67E92C50B2680023D85F /* Model */,
 				F57E67DB2C50B24F0023D85F /* DimeApp.swift */,
 				F57E67DD2C50B24F0023D85F /* ContentView.swift */,
+				F5325AC42C7DFDEA00BA808C /* Extension.swift */,
 				F57E67DF2C50B2500023D85F /* Assets.xcassets */,
 				F57E67E12C50B2500023D85F /* Preview Content */,
 			);
@@ -227,6 +230,7 @@
 				F54519A32C744D7900D00EF4 /* TransactionModel.swift in Sources */,
 				F545199D2C74494400D00EF4 /* SpendAPIService.swift in Sources */,
 				F5E667942C5136BF00EA81A6 /* HomeScreenComponents.swift in Sources */,
+				F5325AC52C7DFDEA00BA808C /* Extension.swift in Sources */,
 				F54519A52C74582A00D00EF4 /* SpendAndEarnViewModel.swift in Sources */,
 				F538FAF92C77040700646F9B /* EarnCategory.swift in Sources */,
 				F538FAFB2C7720E400646F9B /* Temp.swift in Sources */,

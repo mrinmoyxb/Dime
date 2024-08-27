@@ -80,7 +80,12 @@ struct SendScreen: View {
                 .frame(height: 50)
             
             HStack{
-                Button(action: {spendAndEarnViewModel.postSpendingRequest(amount: Double(sendPaymentViewModel.amountInput) ?? 0.0, category: sendPaymentViewModel.categoryOfSpending)}, label: {
+                Button(action: {spendAndEarnViewModel.postSpendingRequest(amount: Double(sendPaymentViewModel.amountInput) ?? 0.0, category: sendPaymentViewModel.categoryOfSpending)
+                    
+                    sendPaymentViewModel.amountInput = ""
+                    sendPaymentViewModel.categoryOfSpending = ""
+                    
+                }, label: {
                     ZStack{
                         Circle()
                             .frame(width: 80, height: 80)

@@ -86,9 +86,9 @@ struct SelectButton: View{
     
     var title: String
     var selectCategory: () -> Void
+    let color3 = Color("MyPrimaryColor")
     
     @State var buttonColor: Bool = false
-    let color3 = Color("MyPrimaryColor")
     
     var body: some View{
         ZStack{

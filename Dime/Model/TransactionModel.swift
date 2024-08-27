@@ -26,14 +26,26 @@ struct Payment: Codable, Identifiable{
         case date
         case id = "transactionId"
     }
+    
+    var signedAmount: Double{
+        if(transactionType=="Spend"){
+            return -amount
+        }
+        else{
+            return +amount
+        }
+    }
 }
 
-// POST
+
+
+// POST - REQUEST
 struct PostTransactionModel: Codable{
     let amount: Double
     let category: String
 }
 
+// POST - RESPONSE
 struct PostResponseTransactionModel: Codable{
     let response: String
 }
